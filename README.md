@@ -2,11 +2,11 @@
 
 A `/speak` slash command for [Claude Code](https://claude.com/claude-code) that reads the last assistant reply aloud. **No TTS API key required.**
 
-Useful when you'd rather listen than read — long explanations, background while you work, accessibility, or language practice.
-
 macOS only.
 
 <img src="./docs/pic.png" width="600" />
+
+> Claude Code replies can be walls of text. Sometimes I'd rather close my eyes and listen.
 
 ## Install
 
