@@ -12,7 +12,7 @@ macOS only.
 
 The simplest way is to hand this repo to Claude Code and ask it to install. Paste this into a Claude Code session:
 
-> Please install https://github.com/Bin-Huang/claude-code-speak by cloning it to a temp dir, then copying `commands/speak.md` to `~/.claude/commands/speak.md` and the `tts/` directory to `~/.claude/tts/`. Then `chmod +x ~/.claude/tts/speak-last.sh`. Also check with `command -v edge-tts` whether the dependency is installed, and give me the install command if it's missing. Finally, pick a fitting default voice and update the `VOICE=` line near the top of `~/.claude/tts/speak-last.sh`. To decide the language, look at my 3 most recently modified transcripts under `~/.claude/projects/*/*.jsonl` and check what language I typed in the `user` messages — don't rely on the language of this instruction. Run `edge-tts --list-voices` to see options.
+> Please install https://github.com/Bin-Huang/claude-code-speak by cloning it to a temp dir, then copying `commands/speak.md` and `commands/stop-speak.md` to `~/.claude/commands/` and the `tts/` directory to `~/.claude/tts/`. Then `chmod +x ~/.claude/tts/speak-last.sh`. Also check with `command -v edge-tts` whether the dependency is installed, and give me the install command if it's missing. Finally, pick a fitting default voice and update the `VOICE=` line near the top of `~/.claude/tts/speak-last.sh`. To decide the language, look at my 3 most recently modified transcripts under `~/.claude/projects/*/*.jsonl` and check what language I typed in the `user` messages — don't rely on the language of this instruction. Run `edge-tts --list-voices` to see options.
 
 Or install manually:
 
@@ -20,7 +20,7 @@ Or install manually:
 git clone https://github.com/Bin-Huang/claude-code-speak.git
 cd claude-code-speak
 mkdir -p ~/.claude/commands ~/.claude/tts
-cp commands/speak.md ~/.claude/commands/
+cp commands/speak.md commands/stop-speak.md ~/.claude/commands/
 cp tts/speak-last.sh tts/extract-last.py ~/.claude/tts/
 chmod +x ~/.claude/tts/speak-last.sh
 
@@ -37,6 +37,12 @@ In any Claude Code session, type:
 ```
 
 Claude replies with 🔊 and you hear the previous message played back.
+
+To stop playback mid-way:
+
+```
+/stop-speak
+```
 
 ## Voice
 
@@ -55,7 +61,7 @@ Common causes: `edge-tts` not installed, or no transcript found for the current 
 ## Uninstall
 
 ```bash
-rm ~/.claude/commands/speak.md
+rm ~/.claude/commands/speak.md ~/.claude/commands/stop-speak.md
 rm -r ~/.claude/tts
 ```
 
