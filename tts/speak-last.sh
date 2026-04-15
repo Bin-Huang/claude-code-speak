@@ -7,15 +7,11 @@
 # Dependencies:
 #   - edge-tts  (pip install edge-tts, or pipx install edge-tts)
 #   - afplay    (built into macOS)
-#
-# Environment variables:
-#   CLAUDE_TTS_VOICE   voice name passed to edge-tts (default: en-US-AriaNeural)
-#   CLAUDE_TTS_RATE    speaking rate, e.g. "+10%", "-20%" (default: +0%)
 
 set -u
 
-VOICE="${CLAUDE_TTS_VOICE:-en-US-AriaNeural}"
-RATE="${CLAUDE_TTS_RATE:-+0%}"
+VOICE="en-US-AriaNeural"
+RATE="+0%"
 
 if ! command -v edge-tts >/dev/null 2>&1; then
   echo "[tts] edge-tts not found in PATH. Install with: pipx install edge-tts" >&2

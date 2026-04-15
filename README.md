@@ -10,7 +10,7 @@ macOS only.
 
 The simplest way is to hand this repo to Claude Code and ask it to install. Paste this into a Claude Code session:
 
-> Please install https://github.com/Bin-Huang/claude-code-speak by cloning it to a temp dir, then copying `commands/speak.md` to `~/.claude/commands/speak.md` and the `tts/` directory to `~/.claude/tts/`. Then `chmod +x ~/.claude/tts/speak-last.sh`. Also check with `command -v edge-tts` whether the dependency is installed, and give me the install command if it's missing.
+> Please install https://github.com/Bin-Huang/claude-code-speak by cloning it to a temp dir, then copying `commands/speak.md` to `~/.claude/commands/speak.md` and the `tts/` directory to `~/.claude/tts/`. Then `chmod +x ~/.claude/tts/speak-last.sh`. Also check with `command -v edge-tts` whether the dependency is installed, and give me the install command if it's missing. Finally, pick a fitting default voice and update the `VOICE=` line near the top of `~/.claude/tts/speak-last.sh`. To decide the language, look at my 3 most recently modified transcripts under `~/.claude/projects/*/*.jsonl` and check what language I typed in the `user` messages — don't rely on the language of this instruction. Run `edge-tts --list-voices` to see options.
 
 Or install manually:
 
@@ -36,23 +36,9 @@ In any Claude Code session, type:
 
 Claude replies with 🔊 and you hear the previous message played back.
 
-## Configuration
+## Voice
 
-Set environment variables in your shell (e.g. `~/.zshrc`) to override defaults:
-
-| Variable            | Default              | Notes                                       |
-| ------------------- | -------------------- | ------------------------------------------- |
-| `CLAUDE_TTS_VOICE`  | `en-US-AriaNeural`   | Voice name                                  |
-| `CLAUDE_TTS_RATE`   | `+0%`                | e.g. `+10%`, `-20%`                         |
-
-Some popular voices:
-
-- English: `en-US-AriaNeural`, `en-US-GuyNeural`, `en-GB-SoniaNeural`
-- 中文: `zh-CN-XiaoxiaoNeural`, `zh-CN-YunxiNeural`, `zh-TW-HsiaoChenNeural`
-- 日本語: `ja-JP-NanamiNeural`
-- Español: `es-ES-ElviraNeural`
-
-Run `edge-tts --list-voices` to see the full list.
+To change the voice, edit the `VOICE=` line at the top of `~/.claude/tts/speak-last.sh`. Run `edge-tts --list-voices` to see the full list.
 
 ## Troubleshooting
 
