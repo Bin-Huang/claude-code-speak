@@ -6,6 +6,8 @@ Useful when you'd rather listen than read — long explanations, background whil
 
 macOS only.
 
+<img src="./docs/pic.png" width="600" />
+
 ## Install
 
 The simplest way is to hand this repo to Claude Code and ask it to install. Paste this into a Claude Code session:
